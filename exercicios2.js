@@ -14,8 +14,8 @@ console.log(menor)
 
 //ex2
 
-let a = id>=18 && id<=70
 let id = 18
+let a = id>=18 && id<=70
 let voto = id >16
 
 let nao =id > voto
@@ -25,11 +25,12 @@ let sim = a
 console.log(sim)
 
 //ex3
+let pessoa = 39
+let adulto = pessoa >= 18
+let idoso = pessoa <= 60
 
-let jovem = jovem => 18
-console.log(jovem)
 
-let idoso = idoso => 60
+console.log(adulto)
 console.log(idoso)
 
 
