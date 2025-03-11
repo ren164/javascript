@@ -74,12 +74,38 @@ verificarIdade(idade)
 
 //ex 6
 
-let soma = prompt("qual sua idade?")
-function verificarIdade(idade){
+let soma1 = Number(prompt("fale um numero"))
+let soma2 = Number(prompt("diga outro numero"))
+
+function somas(soma1, soma2){
     
-    let resultado = a + b
-    return resultado
+    let resul = soma1 + soma2
+    console.log(resul)
  }
-console.log(somar(6,23))
-console.log(somar(123,431))
-console.log(somar(163,7))
+ somas(soma1, soma2)
+
+ //ex 7
+
+let altura = Number(prompt("qual altura do retangulo?"))
+let largura = Number(prompt("qual a largura do retangulo?"))
+
+function multiplicacao(altura, largura){
+    
+    let area = altura * largura
+    console.log(area)
+ }
+ multiplicacao(altura, largura)
+
+ //ex 8
+
+ let pessoaUm = prompt("sua idade?")
+ let pessoaDois = prompt("idade da outra pessoa?")
+function compararIdade(idades){
+    
+    if(pessoaUm > pessoaDois){
+        console.log("pessoa um é mais velha")
+    }else{
+        console.log("pessoa dois e mais velha")
+    }
+}
+compararIdade(idades)
