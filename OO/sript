@@ -1,0 +1,8 @@
+class livro{
+    constructor(titulo, autor, paginas){
+        this.titulo = titulo
+        this.autor =autor
+        this.paginas = paginas
+    }
+    exbir
+}
