@@ -1,12 +1,14 @@
 :root {
-    --primary-color: #2563eb;
-    --success-color: #22c55e;
-    --danger-color: #ef4444;
-    --background-color: #f8fafc;
-    --card-background: #ffffff;
-    --text-color: #1e293b;
-    --border-color: #e2e8f0;
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --primary-color: #00a8ff;
+    --secondary-color: #ffd700;
+    --success-color: #00ff9d;
+    --danger-color: #ff4757;
+    --background-color: #1a1a2e;
+    --card-background: #16213e;
+    --text-color: #ffffff;
+    --border-color: #2a2a4a;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    --card-hover: #1f2b4d;
 }
 
 * {
@@ -15,12 +17,19 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
     outline: none;
-}
+    
 
 body {
     min-height: 100vh;
     background-color: var(--background-color);
     color: var(--text-color);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 168, 255, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 20%);
+        background-image:url(https://i.ytimg.com/vi/AYLi1nyVa7M/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHqCYAC0AWKAgwIABABGBMgVih_MA8=&rs=AOn4CLD84zFuYIG7ZrHLRZ9aY8KMTJZ-Nw);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
 }
 
 .container {
@@ -32,6 +41,19 @@ body {
 header {
     text-align: center;
     margin-bottom: 3rem;
+    position: relative;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
 }
 
 .header-content h1 {
@@ -39,10 +61,11 @@ header {
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(0, 168, 255, 0.3);
 }
 
 .header-content p {
-    color: #64748b;
+    color: #a0a0a0;
     font-size: 1.1rem;
 }
 
@@ -61,11 +84,14 @@ header {
     align-items: center;
     gap: 1rem;
     box-shadow: var(--shadow);
-    transition: transform 0.2s ease;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .card:hover {
     transform: translateY(-2px);
+    background-color: var(--card-hover);
+    border-color: var(--primary-color);
 }
 
 .card i {
@@ -81,19 +107,20 @@ header {
 }
 
 .card.total i {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .card-content h3 {
     font-size: 1rem;
     font-weight: 500;
-    color: #64748b;
+    color: #a0a0a0;
     margin-bottom: 0.25rem;
 }
 
 .card-content p {
     font-size: 1.5rem;
     font-weight: 600;
+    color: var(--text-color);
 }
 
 .novo-item {
@@ -106,6 +133,7 @@ header {
     grid-template-columns: 2fr 1fr 1fr auto;
     gap: 1rem;
     align-items: end;
+    border: 1px solid var(--border-color);
 }
 
 .campo-descricao,
@@ -119,7 +147,7 @@ header {
 label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #64748b;
+    color: #a0a0a0;
 }
 
 input,
@@ -128,16 +156,19 @@ select {
     border: 1px solid var(--border-color);
     border-radius: 0.5rem;
     font-size: 1rem;
-    transition: border-color 0.2s ease;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
 }
 
 input:focus,
 select:focus {
     border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 168, 255, 0.2);
 }
 
 #botao-adicionar {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), #0097e6);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -147,11 +178,12 @@ select:focus {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: background-color 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 #botao-adicionar:hover {
-    background-color: #1d4ed8;
+    background: linear-gradient(135deg, #0097e6, var(--primary-color));
+    transform: translateY(-1px);
 }
 
 .tabela-itens {
@@ -159,6 +191,7 @@ select:focus {
     border-radius: 1rem;
     box-shadow: var(--shadow);
     overflow: hidden;
+    border: 1px solid var(--border-color);
 }
 
 table {
@@ -170,8 +203,9 @@ th {
     text-align: left;
     padding: 1rem;
     font-weight: 500;
-    color: #64748b;
+    color: #a0a0a0;
     border-bottom: 1px solid var(--border-color);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 td {
@@ -195,14 +229,16 @@ td {
     font-weight: 500;
 }
 
-.coluna-tipo p:contains("Entrada") {
-    background-color: #dcfce7;
+.coluna-tipo p.entrada {
+    background-color: rgba(0, 255, 157, 0.1);
     color: var(--success-color);
+    border: 1px solid rgba(0, 255, 157, 0.2);
 }
 
-.coluna-tipo p:contains("Saída") {
-    background-color: #fee2e2;
+.coluna-tipo p.saída {
+    background-color: rgba(255, 71, 87, 0.1);
     color: var(--danger-color);
+    border: 1px solid rgba(255, 71, 87, 0.2);
 }
 
 .coluna-acao button {
@@ -212,21 +248,12 @@ td {
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 0.25rem;
-    transition: background-color 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .coluna-acao button:hover {
-    background-color: #fee2e2;
-}
-
-@media (max-width: 768px) {
-    .novo-item {
-        grid-template-columns: 1fr;
-    }
-    
-    .resumo {
-        grid-template-columns: 1fr;
-    }
+    background-color: rgba(255, 71, 87, 0.1);
+    transform: scale(1.1);
 }
 
 .alerta {
@@ -240,6 +267,7 @@ td {
     box-shadow: var(--shadow);
     animation: slideIn 0.3s ease-out;
     z-index: 1000;
+    border: 1px solid rgba(255, 71, 87, 0.3);
 }
 
 @keyframes slideIn {
@@ -256,7 +284,7 @@ td {
 .sem-itens {
     text-align: center;
     padding: 2rem;
-    color: #64748b;
+    color: #a0a0a0;
     font-style: italic;
 }
 
@@ -267,24 +295,25 @@ td {
 }
 
 .item-descricao small {
-    color: #64748b;
+    color: #a0a0a0;
     font-size: 0.875rem;
 }
 
 .card.total.negativo {
-    background-color: #fee2e2;
+    background-color: rgba(255, 71, 87, 0.1);
+    border-color: var(--danger-color);
 }
 
 .card.total.negativo i {
     color: var(--danger-color);
 }
 
-.coluna-tipo p.entrada {
-    background-color: #dcfce7;
-    color: var(--success-color);
-}
-
-.coluna-tipo p.saída {
-    background-color: #fee2e2;
-    color: var(--danger-color);
+@media (max-width: 768px) {
+    .novo-item {
+        grid-template-columns: 1fr;
+    }
+    
+    .resumo {
+        grid-template-columns: 1fr;
+    }
 }
