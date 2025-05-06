@@ -7,66 +7,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle Financeiro</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <div>
-            <p>BEM-VINDO</p>
-            <p>Esse é o seu controle financeiro</p>
-        </div>
-    </header>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Controle Financeiro</h1>
+                <p>Gerencie suas finanças de forma simples e eficiente</p>
+            </div>
+        </header>
 
-    <main>
-        <div class="resumo">
-            <div>
-                Entradas: R$
-                <span class="valor-entradas">0.00</span>
+        <main>
+            <div class="resumo">
+                <div class="card entrada">
+                    <i class="ri-arrow-up-circle-line"></i>
+                    <div class="card-content">
+                        <h3>Entradas</h3>
+                        <p>R$ <span class="valor-entradas">0.00</span></p>
+                    </div>
+                </div>
+                <div class="card saida">
+                    <i class="ri-arrow-down-circle-line"></i>
+                    <div class="card-content">
+                        <h3>Saídas</h3>
+                        <p>R$ <span class="valor-saidas">0.00</span></p>
+                    </div>
+                </div>
+                <div class="card total">
+                    <i class="ri-wallet-3-line"></i>
+                    <div class="card-content">
+                        <h3>Total</h3>
+                        <p>R$ <span class="valor-total">0.00</span></p>
+                    </div>
+                </div>
             </div>
-            <div>
-                Saídas: R$
-                <span class="valor-saidas">0.00</span>
-            </div>
-            <div>
-                Total: R$
-                <span class="valor-total">0.00</span>
-            </div>
-        </div>
 
-        <div class="novo-item">
-            <div class="campo-descricao">
-                <label for="descricao">Descrição</label>
-                <input type="text" id="descricao" />
+            <div class="novo-item">
+                <div class="campo-descricao">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao" placeholder="Digite a descrição" />
+                </div>
+                <div class="campo-valor">
+                    <label for="valor">Valor</label>
+                    <input type="number" id="valor" placeholder="0.00" step="0.01" />
+                </div>
+                <div class="campo-tipo">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo">
+                        <option value="Entrada">Entrada</option>
+                        <option value="Saída">Saída</option>
+                    </select>
+                </div>
+                <button id="botao-adicionar">
+                    <i class="ri-add-line"></i>
+                    Incluir
+                </button>
             </div>
-            <div class="campo-valor">
-                <label for="valor">Valor</label>
-                <input type="number" id="valor" />
-            </div>
-            <div class="campo-tipo">
-                <label for="tipo">Tipo</label>
-                <select id="tipo">
-                    <option>Entrada</option>
-                    <option>Saída</option>
-                </select>
-            </div>
-            <button id="botao-adicionar">Incluir</button>
-        </div>
 
-        <div class="tabela-itens">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Descrição</th>
-                        <th class="coluna-valor">Valor</th>
-                        <th class="coluna-tipo">Tipo</th>
-                        <th class="coluna-acao"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-    </main>
+            <div class="tabela-itens">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th class="coluna-valor">Valor</th>
+                            <th class="coluna-tipo">Tipo</th>
+                            <th class="coluna-acao"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
